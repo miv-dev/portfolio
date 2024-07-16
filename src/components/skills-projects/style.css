@@ -1,0 +1,159 @@
+.projects{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 2;
+}
+
+
+.projects__content {
+    position: relative;
+    max-width: 600px;
+    transition: all 1s ease-in-out;
+}
+.projects--expand .projects__content{
+    max-width: 1400px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.projects__card {
+    position: absolute;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.card__body {
+    overflow: clip;
+    padding: 20px;
+    border-radius: 20px;
+    width: 500px;
+    height: 350px;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    color: white;
+    position: relative;
+}
+
+.card__tag{
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 4px 12px;
+    background: rgba(255,255,255, 0.1);
+    align-self: start;
+    font-size: 18px;
+}
+.projects--expand .card__tag{
+    border-color:  #864AF9;
+    background: rgba(134, 74, 249, 0.05);
+    color: #864AF9;
+}
+.card__title{
+    font-size: 25px;
+}
+.card__text{
+    flex: 1;
+    font-weight: 300;
+}
+
+.projects__card:nth-child(1) .card__body {
+    background: #864AF9;
+
+}
+
+.projects__card:nth-child(2) .card__body {
+    background: rgba(134, 74, 249, 0.25);
+
+}
+
+.projects__card:nth-child(3) .card__body {
+    background: rgba(134, 74, 249, 0.1);
+
+}
+
+.projects--expand .projects__content .card__body {
+    background: none;
+    border: 2px solid rgba(134, 74, 249, 0.1);
+    color: black;
+}
+
+.projects--expand .projects__content .projects__card {
+    position: relative;
+    padding: 0;
+    animation: showCards 0.5s ease-in-out;
+}
+
+.projects__content .projects__card{
+    animation: moveToPosition 0.5s ease forwards;
+}
+
+
+.projects--expand {
+    /*overflow-x: auto;*/
+    /*display: flex;*/
+    /*gap: 20px;*/
+
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+
+.projects--expand .btn--more {
+    display: none;
+}
+.btn--more{
+    border: 2px solid white;
+    align-self: end;
+}
+
+@keyframes showCards {
+    from {
+        scale: 0.5;
+        opacity: 0;
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+@keyframes moveToPosition {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hideSkills {
+    from {
+        max-width: 600px;
+        opacity: 1;
+
+    }
+    to {
+        max-width: 0;
+        opacity: 0;
+    }
+}
+
+
+
+.skills{
+    flex: 1;
+    max-width: 600px;
+    transition: all 1s ease-in-out;
+    animation: hideSkills 1s ease-in-out alternate-reverse;
+    opacity: 1;
+}
+
+.skills--hidden{
+    max-width: 0;
+    opacity: 0;
+
+    overflow: hidden;
+    animation: hideSkills 1s ease-in-out;
+}
